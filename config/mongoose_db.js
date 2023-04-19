@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 module.exports = function(uri){
-    mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}); //remove DeprecationWarning
     mongoose.connection.on('connected', function(){
         console.log("Mongoose! Conected in: " + uri);
     })
