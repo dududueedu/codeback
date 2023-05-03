@@ -14,7 +14,7 @@ module.exports.createProblem = (req, res) => {
 
 module.exports.listProblem = (req, res) => {
     ProblemModel.find().exec().then((problem) => {
-        res.status(200).json(problem);
+        res.status(200).json(view.render(problem));
         console.log("entrou na promise! ---- listProblem")
     }).catch((error) => {
         res.status(400).json({ message: "error message", error: error });

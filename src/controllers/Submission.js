@@ -22,7 +22,7 @@ module.exports.createSubmission = async (req, res) => {
             error: error
         })
 
-        res.status(400).json(view.render(createdSubmission));
+        res.json(view.render(createdSubmission));
     }
 
     async function handleSubmissionSuccess(success) {
@@ -32,9 +32,9 @@ module.exports.createSubmission = async (req, res) => {
         }
 
         const resultValidation = await validationHandler(success, problem.expectedOutput);
-
+        
         let createdSubmission;
-        if (resultValidation) {
+        if (resultValidation == true) {
             createdSubmission = await SubmissionModel.create({
                 id_problem: submissionBody.problem_id,
                 id_language: submissionBody.language_id,
@@ -52,7 +52,7 @@ module.exports.createSubmission = async (req, res) => {
             })
         }
 
-        res.json(view.render(createdSubmission));
+        res.status(201).json(view.render(createdSubmission));
     }
 
     submissionCodeHandler(filePath, problem.input,
