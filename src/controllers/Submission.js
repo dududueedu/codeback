@@ -16,7 +16,6 @@ module.exports.createSubmission = async (req, res) => {
     async function handleSubmissionError(error) {
         const createdSubmission = await SubmissionModel.create({
             id_problem: submissionBody.problem_id,
-            id_language: submissionBody.language_id,
             codeInput: filePath,
             result: false,
             error: error
@@ -37,7 +36,6 @@ module.exports.createSubmission = async (req, res) => {
         if (resultValidation == true) {
             createdSubmission = await SubmissionModel.create({
                 id_problem: submissionBody.problem_id,
-                id_language: submissionBody.language_id,
                 codeInput: filePath,
                 result: resultValidation,
                 error: false
@@ -45,7 +43,6 @@ module.exports.createSubmission = async (req, res) => {
         } else {
             createdSubmission = await SubmissionModel.create({
                 id_problem: submissionBody.problem_id,
-                id_language: submissionBody.language_id,
                 codeInput: filePath,
                 result: resultValidation,
                 error: "sua saída: " + success + "\nsaída esperada: " + problem.expectedOutput + "\nDiferença na saída exibida pelo programa com a saída esperada. \ndica, lembre-se de colocar somente input()"

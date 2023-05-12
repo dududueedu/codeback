@@ -4,8 +4,7 @@ const render = (submission) => {
         codeInput : submission.codeInput,
         result :  submission.result,
         error :  submission.error,
-        id_problem :  submission.id_problem,
-        id_language :  submission.id_language
+        id_problem :  submission.id_problem
     }
 }
 

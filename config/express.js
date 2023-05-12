@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const swaggerUI = require("swagger-ui-express");
 const swaggerJson = require("../swagger.json");
-const languageRouter = require("../src/routers/Language");
 const submissionRouter = require("../src/routers/Submission");
 const problemRouter = require("../src/routers/Problem");
 require('dotenv').config();
@@ -17,7 +16,6 @@ module.exports = function () {
     app.use(express.static('./public'));
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJson));
 
-    languageRouter(app);
     submissionRouter(app);
     problemRouter(app);
 

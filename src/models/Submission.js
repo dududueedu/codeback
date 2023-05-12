@@ -17,10 +17,6 @@ const SubmissionSchema = new Schema({
     id_problem: {
         type: Schema.Types.ObjectId,
         ref: 'Problem'
-    },
-    id_language: {
-        type: Schema.Types.ObjectId,
-        ref: 'Language'
     }
 })
 

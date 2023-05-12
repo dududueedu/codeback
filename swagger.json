@@ -6,118 +6,6 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/language": {
-            "post": {
-                "summary": "Criar Linguagem",
-                "description": "Descrever abaixo as regras de cada campo",
-                "tags": [
-                    "Language"
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Language"
-                            },
-                            "examples": {
-                                "problem": {
-                                    "value": {
-                                        "name": "Teste"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "get": {
-                "summary": "Buscar todas as linguagens",
-                "description": "Descrever abaixo as regras de cada campo",
-                "tags": [
-                    "Language"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "$ref": "#/components/schemas/Language"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Already exist!"
-                    }
-                }
-            }
-        },
-        "/api/language/{id}": {
-            "get": {
-                "summary": "Buscar linguagem por ID",
-                "description": "Descrever abaixo as regras de cada campo",
-                "tags": [
-                    "Language"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id para buscar linguagem",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "$ref": "#/components/schemas/Language"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Already exist!"
-                    }
-                }
-            },
-            "delete": {
-                "summary": "Deletar linguagem",
-                "description": "Descrever abaixo as regras de cada campo",
-                "tags": [
-                    "Language"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "id para deletar linguagem",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "$ref": "#/components/schemas/Language"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Already exist!"
-                    }
-                }
-            }
-        },
         "/api/submission": {
             "post": {
                 "summary": "Criar Submissão de código",
@@ -135,8 +23,7 @@
                                 "problem": {
                                     "value": {
                                         "codeInput": "value = int(input())\nprint(30)",
-                                        "problem_id": "690a6d41ddedeb40d222fa77",
-                                        "language_id": "614a6d41ddedeb38d444fa95"
+                                        "problem_id": "690a6d41ddedeb40d222fa77"
                                     }
                                 }
                             }
@@ -268,17 +155,6 @@
                     }
                 }
             },
-            "Language": {
-                "type": "object",
-                "properties": {
-                    "_id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
-                }
-            },
             "Submission": {
                 "type": "object",
                 "properties": {
@@ -292,9 +168,6 @@
                         "type": "string"
                     },
                     "id_problem": {
-                        "type": "string"
-                    },
-                    "id_language": {
                         "type": "string"
                     }
                 }

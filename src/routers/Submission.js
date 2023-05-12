@@ -1,8 +1,8 @@
 let controller = require("../controllers/Submission.js");
 
 module.exports = (app) => {
-    app.get("/api/Submission", controller.listSubmission);
-    app.get("/api/Submission/:id", controller.findSubmission);
-    app.post("/api/Submission", controller.createSubmission);
-    app.delete("/api/Submission/:id", controller.deleteSubmission);
+    app.get("/api/submission", controller.listSubmission);
+    app.get("/api/submission/:id", controller.findSubmission);
+    app.post("/api/submission", controller.createSubmission);
+    app.delete("/api/submission/:id", controller.deleteSubmission);
 }
