@@ -9,7 +9,7 @@ module.exports.createSubmission = async (req, res) => {
 
     const submissionBody = req.body;
     const problem = await Problem.findById(submissionBody.problem_id);
-    const fileName = `${submissionBody.problem_id}-${submissionBody.student_id}.py`;
+    const fileName = `${submissionBody.problem_id}.py`;
 
     const filePath = await fileHandler.create(fileName, submissionBody.codeInput);
 
