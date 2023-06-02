@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const config = require('../config');
-const BASE_DIR = config.challengesBaseDir;
+const BASE_DIR = config.problemsBaseDir;
 
 fs.mkdir(BASE_DIR, {recursive: true});
 

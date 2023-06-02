@@ -1,9 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const swaggerUI = require("swagger-ui-express");
-const swaggerJson = require("../swagger.json");
+const swUI = require("swagger-ui-express");
+const swJson = require("../swagger.json");
 const submissionRouter = require("../src/routers/Submission");
-const problemRouter = require("../src/routers/Problem");
 require('dotenv').config();
 
 module.exports = function () {
@@ -14,10 +13,8 @@ module.exports = function () {
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(express.static('./public'));
-    app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJson));
+    app.use("/api-codeplay", swUI.serve, swUI.setup(swJson));
 
     submissionRouter(app);
-    problemRouter(app);
-
     return app;
 }
